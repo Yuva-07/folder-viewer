@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Folder Viewer - Enter Path</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div class="container">
+    <h1>Folder Viewer</h1>
+    <form action="/list" method="post">
+        <label for="path">Enter folder path</label>
+        <input type="text" id="path" name="path" placeholder="e.g. C:\\Users\\You\\Documents or /home/user/docs" required />
+        <button type="submit">Open</button>
+    </form>
+</div>
+</body>
+</html>

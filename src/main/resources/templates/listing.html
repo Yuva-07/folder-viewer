@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${path} + ' - Folder Viewer'">Listing</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div class="container">
+    <h1>Contents of <span th:text="${path}"></span></h1>
+    <div class="controls">
+        <form action="/list" method="post">
+            <input type="hidden" name="path" th:value="${parent}" />
+            <button type="submit" th:if="${parent} != null">Up to parent</button>
+        </form>
+        <form action="/list" method="post" style="display:inline-block; margin-left: 1rem;">
+            <input type="text" name="path" placeholder="Enter a path" />
+            <button type="submit">Go</button>
+        </form>
+    </div>
+    <table class="listing">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Size (bytes)</th>
+            <th>Last Modified</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${entries.size()} == 0">
+            <td colspan="4">(No items or folder is empty / invalid folder)</td>
+        </tr>
+        <tr th:each="e : ${entries}">
+            <td>
+                <span th:if="${e.directory}">
+                    <a th:href="@{/browse(p=${path + '/' + e.name})}" th:text="${e.name}"></a>
+                </span>
+                <span th:if="${!e.directory}" th:text="${e.name}"></span>
+            </td>
+            <td th:text="${e.directory} ? 'Directory' : 'File'"></td>
+            <td th:text="${e.size}"></td>
+            <td th:text="${e.lastModified}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <p><a href="/">Back to home</a></p>
+</div>
+</body>
+</html>
