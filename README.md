@@ -53,7 +53,7 @@ The application is platform-independent and can run on any OS using Docker.
 Navigate to your project directory
 If your Spring Boot project is in C:\Users\Yogesh P\folder-viewer, then do:
 
-cd "C:\Users\Yogesh P\folder-viewer"
+cd "C:\Users\folder-viewer"
 
 
 Check that pom.xml exists:
