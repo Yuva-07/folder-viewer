@@ -9,7 +9,7 @@ Open browser: http://localhost:8080
 Enter a folder path → Browse files
 
 **Running the Application with Docker**
-Make sure Docker Desktop is running, Apache Maven installed and Set Environment Variables.
+Make sure Docker Desktop is running, Apache Maven is installed and Set Environment Variables.
 Verify Installation
 Open a new Command Prompt :
 Run:
@@ -21,14 +21,12 @@ Make sure you are in the **root directory** where the Dockerfile is located:
 
 docker build -t folder-viewer .
 
-
 -t folder-viewer tags the image with the name folder-viewer.
 
 . refers to the current directory containing the Dockerfile.
 
 2. Verify the Docker Image
 docker images
-
 
 You should see folder-viewer listed.
 
